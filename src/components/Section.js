@@ -24,6 +24,14 @@ export default class Section extends Component{
   }
  /*------提供全局提供 页面进入离开状态 End------*/
 
+ static propTypes={
+  className: PropTypes.string
+ }
+
+ static defaultProps={
+  className:''
+ }
+
 
   componentDidMount() {
 
@@ -81,6 +89,7 @@ export default class Section extends Component{
     return window
   }
 
+
   render(){
 
     let sectionStyle = {
@@ -91,7 +100,7 @@ export default class Section extends Component{
     };
 
     return(
-      <div style={sectionStyle} ref={c => this._ref = c}>
+      <div className={this.props.className} style={sectionStyle} ref={c => this._ref = c}>
        {this.props.children}
       </div>
     )

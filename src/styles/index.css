@@ -1,3 +1,154 @@
-.title {
-  color: red;
+
+/* 首页样式 start */
+.report-face {
+  background-image: url('../images/face_bg.png');
+  background-size: 100%;
 }
+
+.face-logo{
+  width: 198px;
+  height: 65px;
+  background-size: 100%;
+  background-image: url('../images/face_logo.png')
+}
+
+.face-slogan {
+  width: 182px;
+  height: 49px;
+  background-size: 100%;
+  background-image: url('../images/face_slogan.png')
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    5% {
+        transform: rotate(3deg);
+    }
+    10% {
+        transform: rotate(-4deg);
+    }
+    15% {
+        transform: rotate(3deg);
+    }
+    20% {
+        transform: rotate(-2deg);
+    }
+    25% {
+        transform: rotate(1deg);
+    }
+    30% {
+        transform: rotate(-1deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.swing {
+  animation: swing 2s infinite 2.5s;
+}
+
+.face-img-left {
+  width: 185px;
+  height: 246px;
+  background-size: 100%;
+  background-image: url('../images/face_img_left.png')
+}
+
+.face-img-right {
+  width: 138px;
+  height: 224px;
+  background-size: 100%;
+  background-image: url('../images/face_img_right.png')
+}
+
+.report-content {
+  background-image: url('../images/page_bg.png');
+  background-size: 100%;
+}
+
+.report-content .caption {
+  background-image: url('../images/page_caption_bg.png');
+  background-size: 100%;
+  width: 283px;
+  height: 160px;
+  text-align: center;
+  line-height: 140px;
+  font-size: 20px;
+  color: #FFF;
+}
+/* 首页样式 End */
+
+
+/* 核心理念页样式 start*/
+.core-people {
+  width: 257px;
+  height: 152px;
+  background-size: 100%;
+  background-image: url('../images/p1_people.png')
+}
+
+.core-description{
+  width: 260px;
+  height: 165px;
+  background-size: 100%;
+  background-image: url('../images/description_bg.png');
+  padding: 15px 10px 10px 10px;
+  font-size: 15px;
+  line-height: 18px;
+  color: #fff;
+}
+
+/* 核心理念页样式 End*/
+
+
+/* 尾页样式 Start*/
+.tail-title {
+  width: 197.5px;
+  height: 64.5px;
+  background-size: 100%;
+  background-image: url('../images/tail_logo.png')
+}
+.tail-slogan{
+  width: 157px;
+  height: 23px;
+  background-size: 100%;
+  background-image: url('../images/tail_slogan.png')
+}
+.tail-back {
+  width: 26px;
+  height: 20px;
+  background-size: 100%;
+  background-image: url('../images/tail_back.png');
+  cursor: pointer;
+}
+.shake {
+  animation: shake 2s infinite ;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0px);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+    100% {
+        transform: translate(0, 0px);
+    }
+}
+/* 尾页样式 End*/
+
+
+/* footer Start*/
+.footer-slide{
+  width: 100%;
+  height: 20px;
+  background-size: 100%;
+  background-image: url('../images/footer.png');
+}
+/* footer End*/

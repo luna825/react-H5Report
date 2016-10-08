@@ -12,8 +12,8 @@ export default class SectionsContainer extends Component{
       slidesCount: props.children.length || 1,
       downThreshold: -Math.abs(this.props.threshold || 100), //鼠标上下滚判定
       upThreshold: this.props.threshold || 100, //鼠标上滚判定
-      activeSlide:0, //当前页
       slides:[],
+      activeSlide:props.activeSlide,
       sectionScrolledPosition:0, //页面滚动位置
       scrollPending:false  //页面是否在滚动
     }
@@ -21,13 +21,20 @@ export default class SectionsContainer extends Component{
 
   static propTypes ={
     duration: PropTypes.number,
-    arrowNavgation: PropTypes.bool
+    arrowNavgation: PropTypes.bool,
+    activeSlide: PropTypes.number,
+    backToTop:PropTypes.bool
   } ;
 
   static defaultProps = {
     duration : 600,           //页面滚动时间
-    arrowNavgation: true      //是否显示导航小圆点
+    arrowNavgation: true,      //是否显示导航小圆点
+    activeSlide:0
   };
+
+  componentWillMount() {
+    this.onResize()
+  }
 
   componentDidMount() {
 
@@ -36,8 +43,7 @@ export default class SectionsContainer extends Component{
     window.addEventListener('touchstart',this.handleTouchStart)
     window.addEventListener('touchend',this.handleTouchEnd)
     window.addEventListener('touchmove',this.handleTouchMove)
-    this.onResize()
-    
+    this.scrollToSilder(this.state.activeSlide)
   }
 
   componentWillUnmount() {
@@ -48,10 +54,16 @@ export default class SectionsContainer extends Component{
     window.removeEventListener('touchmove',this.handleTouchMove)
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.backToTop !== this.props.backToTop){
+      this.scrollToSilder(0)
+    }
+  }
+
   /**
    * 初始化整个报告页面
    */
-  onResize(){
+  onResize = () =>{
 
     //清除x,y的滚动条
     document.querySelector('body').style.overflow = 'hidden';
@@ -74,7 +86,7 @@ export default class SectionsContainer extends Component{
   scrollToSilder(slider){
     this.setState({
       scrollPending: true,
-      activeSlide: slider,
+      activeSlide:slider,
       sectionScrolledPosition: this.state.slides[slider]
     })
 
