@@ -1,5 +1,6 @@
-import React from 'react'
 
+import path from 'path'
+import React from 'react'
 
 import {SectionsContainer, Section, AnimateItem} from './components'
 
@@ -102,16 +103,61 @@ export default class H5Report extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      backToTop:true
+      backToTop:true,
+      loading:true,
+      loadProcess: 0
     }
+    this.images = [
+      './images/description_bg.png',
+      './images/face_bg.png',
+      './images/face_img_right.png',
+      './images/face_img_left.png',
+      './images/face_logo.png',
+      './images/face_slogan.png',
+      './images/footer.png',
+      './images/p1_people.png',
+      './images/page_bg.png',
+      './images/page_caption_bg.png',
+      './images/tail_logo.png',
+      './images/tail_share.png',
+      './images/tail_slogan.png',
+    ],
+    this.loaded = 0
   }
 
   handleOnClick(){
     this.setState({backToTop: !this.state.backToTop})
   }
 
-  render(){
+  handleImageOnload(){
+    const count = this.images.length
+    this.loaded +=1
+    this.setState({
+      loadProcess: this.loaded / count,
+      loading: this.loaded === count ? false : true
+    }) 
+
+  }
+
+  renderLoading(){
     return(
+      <div className="loading">
+        <div className="round1"></div>
+        <div className="round2"></div>
+        <div id="rate"> { (this.state.loadProcess * 100) >> 0 }%</div>
+        <div style={{display:'none'}}>
+          {this.images.map((image,i) =>
+            <img key={i} src={require(image)} onLoad={this.handleImageOnload.bind(this)}/>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+
+  render(){
+    
+    return(this.state.loading ? this.renderLoading() :
       <SectionsContainer arrowNavgation={false} backToTop={this.state.backToTop}>
         <ReportFace />
         <ReportContentCore />
