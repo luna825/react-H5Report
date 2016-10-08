@@ -22,7 +22,8 @@ module.exports ={
           presets:['es2015','react','stage-0']
         }
       },
-      {test:/\.css$/,loader:'style-loader!css-loader'}
+      {test:/\.css$/,loader:'style-loader!css-loader'},
+      {test: /\.(jpg|png)$/, loader: "url?limit=8192"}
     ]
   },
   plugins:[
