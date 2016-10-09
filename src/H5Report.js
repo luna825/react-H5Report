@@ -2,7 +2,7 @@ import React from 'react'
 
 
 import {SectionsContainer, Section, AnimateItem, 
-  PolylineDemo, PieDemo, RingDemo, RadarDemo} from './components'
+  PolylineDemo, PieDemo, RingDemo, RadarDemo, BarDemo, BarVDemo} from './components'
 
 
 const LevelCenter={
@@ -112,6 +112,38 @@ const ReportContentMobile = () =>
   </Section>
 /*-----------------移动开发Pie End--------------------*/
 
+/*-----------------前端开发Bar Start--------------------*/
+const ReportContentFrontEnd = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 前端开发课程 </div>
+    </AnimateItem>
+    <AnimateItem style={center} animate={0} offsetTop="-100px">
+      <BarDemo delay={1000} />
+    </AnimateItem>
+    <AnimateItem style={{...LevelCenter, bottom:150}} animate={0}>
+      <div style={{color:'#ff7676'}}> 前端课程javascript占60% </div>
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------前端开发 End--------------------*/
+
+/*-----------------前端开发Bar Start--------------------*/
+const ReportContentFrontEndV = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 前端开发课程 </div>
+    </AnimateItem>
+    <AnimateItem style={center} animate={0} offsetTop="-100px">
+      <BarVDemo delay={1000}/>
+    </AnimateItem>
+    <AnimateItem style={{...LevelCenter, bottom:150}} animate={0}>
+      <div style={{color:'#ff7676'}}> 前端课程javascript占60% </div>
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------前端开发 End--------------------*/
+
 /*-----------------后端开发课程Radar Start--------------------*/
 const ReportContentBackEnd = () =>
   <Section className="report-content">
@@ -192,6 +224,8 @@ export default class H5Report extends React.Component {
         <ReportContentCore />
         <ReportContentCourse />
         <ReportContentMobile />
+        <ReportContentFrontEnd/>
+        <ReportContentFrontEndV />
         <ReportContentBackEnd />
         <ReportContentRing />
         <ReportTail handleOnClick={this.handleOnClick.bind(this)} />

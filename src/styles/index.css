@@ -152,3 +152,70 @@
   background-image: url('../images/footer.png');
 }
 /* footer End*/
+
+
+/* barCss Start */
+.bar-text{
+  position: absolute;
+  left: -60px;
+  font-size: 12px;
+  line-height: 15px;
+  width: 60px;
+  text-align: center;
+}
+
+.bar-process {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.bar-process .process{
+  width: 100%;
+  height: 15px;
+  position: absolute;
+  border-radius: 3px;
+}
+
+.bar-rate {
+  position: absolute;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+
+.bar-text-v{
+  position: absolute;
+  bottom: -16px;
+  font-size: 12px;
+  line-height: 15px;
+  width: 60px;
+  text-align: center;
+}
+
+.bar-process-v {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.bar-process-v .process-v{
+  width: 15px;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.bar-rate-v {
+  position: absolute;
+  font-size: 12px;
+  line-height: 15px;
+  width: 60px;
+  text-align: center;
+}
+/* barCss End*/
