@@ -1,7 +1,8 @@
 import React from 'react'
 
 
-import {SectionsContainer, Section, AnimateItem} from './components'
+import {SectionsContainer, Section, AnimateItem, 
+  PolylineDemo, PieDemo, RingDemo, RadarDemo} from './components'
 
 
 const LevelCenter={
@@ -79,6 +80,80 @@ const ReportContentCore = ()=>
   </Section>
 /*-----------------核心理念 End--------------------*/
 
+/*-----------------课程分布polyline Start--------------------*/
+const ReportContentCourse = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 课程分布 </div>
+    </AnimateItem>
+    <AnimateItem animate={0} style={{...LevelCenter,top:160}}>
+      <div style={{color:'red'}}>前端开发课程占到40%</div>
+    </AnimateItem>
+    <AnimateItem style={center} animate={0} offsetTop='-100px'>
+      <PolylineDemo delay={1000} />
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------课程分布polyline End--------------------*/
+
+/*-----------------移动开发Pie Start--------------------*/
+const ReportContentMobile = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 移动开发课程资源 </div>
+    </AnimateItem>
+    <AnimateItem animate={0} style={{...LevelCenter,top:160}}>
+      <div style={{color:'red'}}>移动课程Android占到40%</div>
+    </AnimateItem>
+    <AnimateItem style={center} animate={false}>
+      <PieDemo delay={1000} />
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------移动开发Pie End--------------------*/
+
+/*-----------------后端开发课程Radar Start--------------------*/
+const ReportContentBackEnd = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 后端开发课程 </div>
+    </AnimateItem>
+    <AnimateItem style={center} animate={0} offsetTop='-100px'>
+      <RadarDemo delay={1000} />
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------后端开发课程Radar End--------------------*/
+
+/*-----------------课程报名人数Ring Start--------------------*/
+const ReportContentRing = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 课程报名人数过万 </div>
+    </AnimateItem>
+    <AnimateItem style={{...LevelCenter,top:160}} >
+      <RingDemo delay={1000} />
+    </AnimateItem>
+
+    <AnimateItem style={{left:'10%',bottom:150}} >
+      <RingDemo width={150} height={150} delay={1000} data={{name:'后端开发',per:.3}} />
+    </AnimateItem>
+    <AnimateItem style={{left:'40%',bottom:150}} >
+      <RingDemo width={150} height={150} delay={1000} data={{name:'前端开发',per:.4}} />
+    </AnimateItem>
+    <AnimateItem style={{left:'70%',bottom:150}} >
+      <RingDemo width={150} height={150} delay={1000} data={{name:'移动开发',per:.2}} />
+    </AnimateItem>
+    <AnimateItem style={{left:'25%',bottom:50}} >
+      <RingDemo width={150} height={150} delay={1000} data={{name:'数据处理',per:.1}} />
+    </AnimateItem>
+    <AnimateItem style={{left:'55%',bottom:50}} >
+      <RingDemo width={150} height={150} delay={1000} data={{name:'图像处理',per:.15}} />
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------课程报名人数Ring End--------------------*/
+
 
 /*-----------------尾页 Start--------------------*/
 const ReportTail = ({handleOnClick}) => 
@@ -112,9 +187,13 @@ export default class H5Report extends React.Component {
 
   render(){
     return(
-      <SectionsContainer arrowNavgation={false} backToTop={this.state.backToTop}>
+      <SectionsContainer arrowNavgation={false} backToTop={this.state.backToTop} activeSlide={5}>
         <ReportFace />
         <ReportContentCore />
+        <ReportContentCourse />
+        <ReportContentMobile />
+        <ReportContentBackEnd />
+        <ReportContentRing />
         <ReportTail handleOnClick={this.handleOnClick.bind(this)} />
       </SectionsContainer>
     )
