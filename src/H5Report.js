@@ -2,7 +2,9 @@ import React from 'react'
 
 
 import {SectionsContainer, Section, AnimateItem, 
-  PolylineDemo, PieDemo, RingDemo, RadarDemo, BarDemo, BarVDemo} from './components'
+  PolylineDemo, PieDemo, RingDemo, RadarDemo, BarDemo, BarVDemo, Points} from './components'
+
+import Point from './components/Point/Point_pre'
 
 
 const LevelCenter={
@@ -186,6 +188,19 @@ const ReportContentRing = () =>
   </Section>
 /*-----------------课程报名人数Ring End--------------------*/
 
+/*-----------------难度分布Points Start--------------------*/
+const ReportContentPoints = () =>
+  <Section className="report-content">
+    <AnimateItem >
+      <div className="caption"> 课程难度分布 </div>
+    </AnimateItem>
+    <AnimateItem>
+      <Points />
+    </AnimateItem>
+    <Footer />
+  </Section>
+/*-----------------难度分布Points End--------------------*/
+
 
 /*-----------------尾页 Start--------------------*/
 const ReportTail = ({handleOnClick}) => 
@@ -219,7 +234,7 @@ export default class H5Report extends React.Component {
 
   render(){
     return(
-      <SectionsContainer arrowNavgation={false} backToTop={this.state.backToTop} activeSlide={5}>
+      <SectionsContainer arrowNavgation={false} backToTop={this.state.backToTop} activeSlide={0}>
         <ReportFace />
         <ReportContentCore />
         <ReportContentCourse />
@@ -228,6 +243,7 @@ export default class H5Report extends React.Component {
         <ReportContentFrontEndV />
         <ReportContentBackEnd />
         <ReportContentRing />
+        <ReportContentPoints />
         <ReportTail handleOnClick={this.handleOnClick.bind(this)} />
       </SectionsContainer>
     )

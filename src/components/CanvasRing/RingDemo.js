@@ -3,7 +3,7 @@ import CanvasRing from './CanvasRing'
 import {Motion, spring} from 'react-motion'
 
 const springCfg={
-  stiffness:15,
+  stiffness:30,
   damping:10
 }
 
